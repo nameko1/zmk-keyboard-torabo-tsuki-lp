@@ -11,7 +11,7 @@
         compatible = "zmk,combos";
 
         app_swich {
-            bindings = <&kp LG(LC(TAB))>;
+            bindings = <&kp TAB>;
             key-positions = <24 20>;
         };
 
@@ -27,19 +27,33 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TAPPING_TERM_MS>;
-            bindings = <&kp I>, <&kp LGUI>;
+            bindings = <&kp I>, <&kp LG(TAB)>;
         };
+
         td_cut: td_x_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TAPPING_TERM_MS>;
-            bindings = <&kp X>, <&kp X>;
+            bindings = <&kp X>, <&kp LG(X)>;
         };
+
         td_vim: td_v_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TAPPING_TERM_MS>;
             bindings = <&kp V>, <&tog 6>;
+        };
+
+        td_copy: td_c_layer {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp C>, <&kp LG(C)>;
+        };
+
+        td_paste: td_p_layer {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            bindings = <&kp P>, <&kp LG(P)>;
         };
     };
 
@@ -48,11 +62,11 @@
 
         default {
             bindings = <
-&none         &none         &none     &none  &none     &none                                          &none  &none  &none      &none     &none          &none
-&kp TAB       &kp Q         &kp W     &kp E  &kp R     &kp T                                          &kp Y  &kp U  &kp I      &kp O     &kp P          &kp BSPC
-&kp RCTRL     &kp A         &kp S     &kp D  &kp F     &kp G  &none                  &none             &kp H  &kp J  &kp K      &kp L     &kp SEMICOLON  &kp SQT
-&sk LSHFT     &kp Z         &td_cut   &kp C  &td_vim   &kp B  &kp ESCAPE           &kp RET           &kp N  &kp M  &kp COMMA  &kp DOT   &kp FSLH       &kp RET
-&kp LEFT_ALT  &kp LEFT_ALT  &kp LALT  &mo 5  &mo 1 &mt LEFT_SHIFT SPACE  &kp LGUI &mt RSHIFT ENTER &mo 2  &none  &none      &kp RGUI  &kp RCTRL      &kp RCTRL
+&none         &none         &none     &none     &none    &none                                               &none  &none  &none      &none     &none          &none
+&kp TAB       &kp Q         &kp W     &kp E     &kp R    &kp T                                               &kp Y  &kp U  &td_app    &kp O     &td_paste      &kp BSPC
+&kp RCTRL     &kp A         &kp S     &kp D     &kp F    &kp G                 &none       &none             &kp H  &kp J  &kp K      &kp L     &kp SEMICOLON  &kp SQT
+&sk LSHFT     &kp Z         &td_cut   &td_copy  &td_vim  &kp B                 &kp ESCAPE  &kp RET           &kp N  &kp M  &kp COMMA  &kp DOT   &kp FSLH       &kp RET
+&kp LEFT_ALT  &kp LEFT_ALT  &kp LALT  &mo 5     &mo 1    &mt LEFT_SHIFT SPACE  &kp LGUI    &mt RSHIFT ENTER  &mo 2  &none  &none      &kp RGUI  &kp RCTRL      &kp RCTRL
             >;
         };
 
