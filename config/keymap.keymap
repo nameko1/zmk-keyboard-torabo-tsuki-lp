@@ -4,62 +4,66 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
-#define TAPPING_TERM_MS 250
+#define TAPPING_TERM_MS_FAST 180
+#define TAPPING_TERM_MS_SLOW 250
+#define COMBO_TIMEOUT_MS 80
 
 / {
     combos {
         compatible = "zmk,combos";
 
         app_swich {
-            bindings = <&kp TAB>;
-            key-positions = <24 20 56>;
+            bindings = <&kp LGUI>;
+            slow-release;
+            key-positions = <24 56>;
         };
 
-        to_default_layer {
+        escape_combo {
+            timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <24 23>;
             bindings = <&kp ESCAPE>;
         };
     };
 
     behaviors {
-        td_app: td_i_layer {
+        td_app: td_i_layer{
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <TAPPING_TERM_MS>;
+            tapping-term-ms = <TAPPING_TERM_MS_FAST>;
             bindings = <&kp I>, <&kp LG(TAB)>;
         };
 
         td_cut: td_x_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <TAPPING_TERM_MS>;
+            tapping-term-ms = <TAPPING_TERM_MS_FAST>;
             bindings = <&kp X>, <&kp LG(X)>;
         };
 
         td_vim: td_v_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <TAPPING_TERM_MS>;
+            tapping-term-ms = <TAPPING_TERM_MS_FAST>;
             bindings = <&kp V>, <&tog 6>;
         };
 
         td_copy: td_c_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <TAPPING_TERM_MS>;
+            tapping-term-ms = <TAPPING_TERM_MS_FAST>;
             bindings = <&kp C>, <&kp LG(C)>;
         };
 
         td_paste: td_p_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <TAPPING_TERM_MS>;
+            tapping-term-ms = <TAPPING_TERM_MS_FAST>;
             bindings = <&kp P>, <&kp LG(P)>;
         };
         td_caps: tap_dance_caps_word {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <TAPPING_TERM_MS>;
+            tapping-term-ms = <TAPPING_TERM_MS_SLOW>;
             bindings = <&sk LEFT_SHIFT>,<&caps_word>;
         };
     };
@@ -72,7 +76,7 @@
 &none         &none         &none     &none     &none    &none                                               &none  &none  &none      &none     &none          &none
 &kp TAB       &kp Q         &kp W     &kp E     &kp R    &kp T                                               &kp Y  &kp U  &td_app    &kp O     &td_paste      &kp BSPC
 &kp LCTRL     &kp A         &kp S     &kp D     &kp F    &kp G                 &none       &none             &kp H  &kp J  &kp K      &kp L     &kp SEMICOLON  &kp SQT
-&td_caps      &kp Z         &td_cut   &td_copy  &td_vim  &kp B                 &kp ESCAPE  &kp RET           &kp N  &kp M  &kp COMMA  &kp DOT   &kp FSLH       &kp RET
+&td_caps      &kp Z         &kp X   &td_copy  &td_vim  &kp B                 &kp ESCAPE  &kp RET           &kp N  &kp M  &kp COMMA  &kp DOT   &kp FSLH       &kp RET
 &kp LEFT_ALT  &kp LEFT_ALT  &kp LALT  &mo 5     &mo 1    &lt 1 SPACE  &kp LGUI  &mo 2  &lt 2 ENTER    &none  &none      &kp RGUI  &kp RCTRL      &kp RCTRL
             >;
         };
