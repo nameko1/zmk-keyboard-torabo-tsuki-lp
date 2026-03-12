@@ -11,6 +11,7 @@
 #define SCROLL 5
 #define VIM_NORMAL 6
 #define STAGE 7
+#define YANK 8
 #define TAPPING_TERM_MS_FAST 180
 #define TAPPING_TERM_MS_SLOW 250
 #define COMBO_TIMEOUT_MS 80
@@ -32,40 +33,52 @@
         };
     };
 
+    macros {
+        line_copy: line_copy {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <
+                &kp HOME
+                &kp LS(END)
+                &kp LC(C)
+            >;
+        };
+    };
+
     behaviors {
         td_app: td_i_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TAPPING_TERM_MS_FAST>;
-            bindings = <&kp I>, <&kp LG(TAB)>;
+            bindings = <&kp LG(TAB)>;
         };
 
         td_cut: td_x_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TAPPING_TERM_MS_FAST>;
-            bindings = <&kp X>, <&kp LG(X)>;
+            bindings = <&kp LG(X)>;
         };
 
         td_vim: td_v_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TAPPING_TERM_MS_FAST>;
-            bindings = <&kp V>, <&tog 6>;
+            bindings = <&tog 6>;
         };
 
-        td_copy: td_c_layer {
+        td_copy: td_copy {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TAPPING_TERM_MS_FAST>;
-            bindings = <&kp C>, <&kp LG(C)>;
+            bindings = <&kp LG(C)>, <>;
         };
 
         td_paste: td_p_layer {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TAPPING_TERM_MS_FAST>;
-            bindings = <&kp P>, <&kp LG(P)>;
+            bindings = <&kp LG(P)>;
         };
 
         td_caps: tap_dance_caps_word {
@@ -152,9 +165,19 @@
         dance_stage {
             bindings = <
 &none   &none   &none    &none     &none    &none                   &none   &none   &none    &none   &none      &none
-&trans  &trans  &trans   &trans    &trans   &trans                  &trans  &trans  &td_app  &trans  &td_paste  &trans
+&trans  &trans  &trans   &trans    &trans   &trans                  &trans  &sl YANK  &td_app  &trans  &td_paste  &trans
 &trans  &trans  &trans   &trans    &trans   &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans     &trans
 &trans  &trans  &td_cut  &td_copy  &td_vim  &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans     &trans
+&trans  &trans  &trans   &trans    &trans   &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans     &trans
+            >;
+        };
+
+        yank {
+            bindings = <
+&none   &none   &none    &none     &none    &none                   &none   &none   &none    &none   &none      &none
+&trans  &trans  &trans   &trans    &trans   &trans                  &trans  &line_copy  &trans  &trans  &trans  &trans
+&trans  &trans  &trans   &trans    &trans   &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans     &trans
+&trans  &trans  &trans   &trans    &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans   &trans    &trans   &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans     &trans
             >;
         };
