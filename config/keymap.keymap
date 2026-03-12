@@ -32,12 +32,29 @@
             bindings = <&kp ESCAPE>;
         };
     };
-
     macros {
         line_copy: line_copy {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp HOME &kp LS(END) &kp LC(C)>, <&macro_press>;
+            bindings = <
+                &kp HOME
+                &kp LS(END)
+                &kp LC(C)
+            >;
+        };
+
+        yank_word: yank_word {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <
+                &macro_press &kp LCTRL
+                &macro_press &kp LSHIFT
+                &kp RIGHT
+                &macro_release &kp LSHIFT
+                &macro_release &kp LCTRL
+                &macro_wait_time 20
+                &kp LC(C)
+            >;
         };
     };
 
@@ -67,7 +84,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <TAPPING_TERM_MS_FAST>;
-            bindings = <&kp LG(C)>, <>;
+            bindings = <&kp LG(C)>;
         };
 
         td_paste: td_p_layer {
@@ -151,7 +168,7 @@
         vim_normal {
             bindings = <
 &none   &none   &none   &none   &none          &none                           &none           &none           &none         &none            &none   &none
-&trans  &trans  &trans  &trans  &kp LG(LS(Z))  &trans                          &trans          &kp LG(Z)       &to 0         &trans           &trans  &trans
+&trans  &trans  &trans  &trans  &kp LG(LS(Z))  &trans                          &sl YANK          &kp LG(Z)       &to 0         &trans           &trans  &trans
 &trans  &trans  &trans  &trans  &trans         &trans          &none   &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans  &trans
 &trans  &trans  &trans  &trans  &trans         &kt LEFT_SHIFT  &trans  &trans  &trans          &trans          &trans        &trans           &trans  &trans
 &trans  &trans  &trans  &trans  &trans         &trans          &trans  &trans  &trans          &trans          &trans        &trans           &trans  &trans
@@ -160,21 +177,21 @@
 
         dance_stage {
             bindings = <
-&none   &none   &none    &none     &none    &none                   &none   &none     &none    &none   &none      &none
-&trans  &trans  &trans   &trans    &trans   &trans                  &trans  &sl YANK  &td_app  &trans  &td_paste  &trans
-&trans  &trans  &trans   &trans    &trans   &trans  &trans  &trans  &trans  &trans    &trans   &trans  &trans     &trans
-&trans  &trans  &td_cut  &td_copy  &td_vim  &trans  &trans  &trans  &trans  &trans    &trans   &trans  &trans     &trans
-&trans  &trans  &trans   &trans    &trans   &trans  &trans  &trans  &trans  &trans    &trans   &trans  &trans     &trans
+&none   &none   &none    &none     &none    &none                   &none   &none   &none    &none   &none      &none
+&trans  &trans  &trans   &trans    &trans   &trans                  &sl YANK  &trans &td_app  &trans  &td_paste  &trans
+&trans  &trans  &trans   &trans    &trans   &trans  &none  &none  &trans  &trans  &trans   &trans  &trans     &trans
+&trans  &trans  &td_cut  &td_copy  &td_vim  &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans     &trans
+&trans  &trans  &trans   &trans    &trans   &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans     &trans
             >;
         };
 
         yank {
             bindings = <
-&none   &none   &none   &none   &none   &none                   &none   &none       &none   &none   &none   &none
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &line_copy  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &none   &none   &trans  &trans      &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans
+&none   &none   &none    &none     &none    &none                   &none   &none   &none    &none   &none      &none
+&trans  &trans  &yank_word   &trans    &trans   &trans                  &trans  &line_copy  &trans  &trans  &trans  &trans
+&trans  &trans  &trans   &trans    &trans   &trans  &none  &none  &trans  &trans  &trans   &trans  &trans     &trans
+&trans  &trans  &trans   &trans    &trans   &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans     &trans
+&trans  &trans  &trans   &trans    &trans   &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans     &trans
             >;
         };
     };
