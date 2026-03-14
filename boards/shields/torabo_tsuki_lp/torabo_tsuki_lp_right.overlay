@@ -7,7 +7,7 @@
     excluded-positions = <
         33 34 35
     >;
-    require-prior-idle-ms = <400>;
+    require-prior-idle-ms = <1000>;
 
 };
 
@@ -22,7 +22,7 @@
         layers = <5>;
         input-processors = <
             &zip_xy_to_scroll_mapper
-            &zip_scroll_scaler 1 15
+            &zip_scroll_scaler 1 25
 
         >;
     };
