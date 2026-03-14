@@ -104,6 +104,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings = <&kp LEFT_GUI>, <&sk LEFT_GUI>;
+            tapping-term-ms = <TAPPING_TERM_MS_SLOW>;
 
             label = "TD_CMD";
         };
@@ -112,6 +113,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings = <&kp LEFT_ALT>, <&sk LEFT_ALT>;
+            tapping-term-ms = <TAPPING_TERM_MS_SLOW>;
 
             label = "TD_OPT";
         };
@@ -120,6 +122,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings = <&sk LEFT_GUI>, <&sk TAB>;
+            tapping-term-ms = <TAPPING_TERM_MS_SLOW>;
 
             label = "TD_APP_SWITCH";
         };
@@ -171,17 +174,17 @@
         auto_mouse {
             bindings = <
 &none   &none   &none   &none   &none   &none                   &none   &none      &none      &none      &none   &none
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans     &trans     &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &none   &none   &trans  &mkp LCLK  &mkp RCLK  &mkp MCLK  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none      &none      &trans     &trans  &trans
+&none   &none   &none   &none   &none   &none                   &none   &none      &none      &none      &none   &none
+&none  &none  &none  &none  &none  &none  &none   &none   &none  &mkp LCLK  &mkp RCLK  &mkp MCLK  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none     &none     &none     &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none      &none      &none     &none  &none
             >;
         };
 
         scroll {
             bindings = <
 &none   &none   &none   &none   &none   &none                   &none   &none   &none   &none   &none   &none
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&none   &none   &none   &none   &none   &none                   &none   &none      &none      &none      &none   &none
 &trans  &trans  &trans  &trans  &trans  &trans  &none   &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none   &trans  &trans  &trans  &trans
@@ -203,7 +206,7 @@
 &none   &none   &none    &none     &none    &none                   &none     &none   &none    &none   &none      &none
 &trans  &trans  &trans   &trans    &trans   &trans                  &sl YANK  &trans  &td_app  &trans  &td_paste  &trans
 &trans  &trans  &trans   &trans    &trans   &trans  &none   &none   &trans    &trans  &trans   &trans  &trans     &trans
-&trans  &trans  &td_cut  &td_copy  &td_vim  &trans  &trans  &trans  &trans    &trans  &trans   &trans  &trans     &trans
+&trans  &trans  &td_cut  &none  &td_vim  &trans  &trans  &trans  &trans    &trans  &trans   &trans  &trans     &trans
 &trans  &trans  &trans   &trans    &trans   &trans  &trans  &trans  &trans    &trans  &trans   &trans  &trans     &trans
             >;
         };
