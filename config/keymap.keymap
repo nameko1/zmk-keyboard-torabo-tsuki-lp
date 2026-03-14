@@ -16,11 +16,6 @@
 #define TAPPING_TERM_MS_SLOW 250
 #define COMBO_TIMEOUT_MS 100
 
-&lt {
-    flavor = "hold-preferred";
-    tapping-term-ms = <TAPPING_TERM_MS_FAST>;
-};
-
 / {
     combos {
         compatible = "zmk,combos";
@@ -109,8 +104,8 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings = <&kp LEFT_GUI>, <&sk LEFT_GUI>;
-            tapping-term-ms = <TAPPING_TERM_MS_SLOW>;
 
+            tapping-term-ms = <TAPPING_TERM_MS_SLOW>;
             label = "TD_CMD";
         };
 
@@ -118,8 +113,8 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings = <&kp LEFT_ALT>, <&sk LEFT_ALT>;
-            tapping-term-ms = <TAPPING_TERM_MS_SLOW>;
 
+            tapping-term-ms = <TAPPING_TERM_MS_SLOW>;
             label = "TD_OPT";
         };
 
@@ -127,8 +122,8 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             bindings = <&sk LEFT_GUI>, <&sk TAB>;
-            tapping-term-ms = <TAPPING_TERM_MS_SLOW>;
 
+            tapping-term-ms = <TAPPING_TERM_MS_SLOW>;
             label = "TD_APP_SWITCH";
         };
     };
@@ -138,11 +133,11 @@
 
         default {
             bindings = <
-&none      &none    &none    &none  &none  &none                                    &none        &none  &none      &none    &none          &none
-&kp TAB    &kp Q    &kp W    &kp E  &kp R  &kp T                                    &kp Y        &kp U  &kp I      &kp O    &kp P          &kp BSPC
-&kp LCTRL  &kp A    &kp S    &kp D  &kp F  &kp G        &none       &none           &kp H        &kp J  &kp K      &kp L    &kp SEMICOLON  &kp RET
-&td_caps   &kp Z    &kp X    &kp C  &kp V  &kp B        &kp ESCAPE  &td_app_switch  &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH       &td_caps
-&kp F      &td_opt  &td_cmd  &mo 5  &mo 1  &lt 1 SPACE  &mo 7       &mo 2           &lt 2 SPACE  &none  &none      &kp F    &kp F          &kp F
+&none      &none    &none    &none  &none    &none                                    &none        &none  &none      &none    &none          &none
+&kp TAB    &kp Q    &kp W    &kp E  &kp R    &kp T                                    &kp Y        &kp U  &kp I      &kp O    &kp P          &kp BSPC
+&kp LCTRL  &kp A    &kp S    &kp D  &kp F    &kp G        &none       &none           &kp H        &kp J  &kp K      &kp L    &kp SEMICOLON  &kp RET
+&td_caps   &kp Z    &kp X    &kp C  &kp V    &kp B        &kp ESCAPE  &td_app_switch  &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH       &td_caps
+&kp F      &td_opt  &td_cmd  &mo 5  &td_cmd  &lt 1 SPACE  &mo 7       &mo 2           &lt 2 ENTER  &none  &none      &kp F    &kp F          &kp F
             >;
         };
 
@@ -151,7 +146,7 @@
 &none   &none            &none   &none     &none       &none                        &none      &none          &none         &none     &none     &none
 &trans  &kp EXCLAMATION  &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT                  &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LPAR  &kp RPAR  &trans
 &trans  &trans           &trans  &trans    &kp PIPE    &kp TILDE    &none   &none   &kp UNDER  &kp PLUS       &kp LBRC      &kp RBRC  &kp DQT   &trans
-&trans  &trans           &trans  &trans    &trans      &trans       &trans  &trans  &trans     &trans         &kp LT       &kp GT   &trans    &trans
+&trans  &trans           &trans  &trans    &trans      &trans       &trans  &trans  &trans     &trans         &kp LT        &kp GT    &trans    &trans
 &trans  &trans           &trans  &trans    &trans      &trans       &trans  &trans  &trans     &none          &none         &trans    &trans    &trans
             >;
         };
@@ -178,18 +173,18 @@
 
         auto_mouse {
             bindings = <
-&none   &none   &none   &none   &none   &none                   &none   &none      &none      &none      &none   &none
-&none   &none   &none   &none   &none   &none                   &none   &none      &none      &none      &none   &none
-&none  &none  &none  &none  &none  &none  &none   &none   &none  &mkp LCLK  &mkp RCLK  &mkp MCLK  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none     &none     &none     &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none      &none      &none     &none  &none
+&none  &none  &none  &none  &none  &none                &none  &none      &none      &none      &none  &none
+&none  &none  &none  &none  &none  &none                &none  &none      &none      &none      &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &mkp LCLK  &mkp RCLK  &mkp MCLK  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none      &none      &none      &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none      &none      &none      &none  &none
             >;
         };
 
         scroll {
             bindings = <
 &none   &none   &none   &none   &none   &none                   &none   &none   &none   &none   &none   &none
-&none   &none   &none   &none   &none   &none                   &none   &none      &none      &none      &none   &none
+&none   &none   &none   &none   &none   &none                   &none   &none   &none   &none   &none   &none
 &trans  &trans  &trans  &trans  &trans  &trans  &none   &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none   &trans  &trans  &trans  &trans
@@ -208,11 +203,11 @@
 
         dance_stage {
             bindings = <
-&none   &none   &none    &none     &none    &none                   &none     &none   &none    &none   &none      &none
-&trans  &trans  &trans   &trans    &trans   &trans                  &sl YANK  &trans  &td_app  &trans  &td_paste  &trans
-&trans  &trans  &trans   &trans    &trans   &trans  &none   &none   &trans    &trans  &trans   &trans  &trans     &trans
-&trans  &trans  &td_cut  &none  &td_vim  &trans  &trans  &trans  &trans    &trans  &trans   &trans  &trans     &trans
-&trans  &trans  &trans   &trans    &trans   &trans  &trans  &trans  &trans    &trans  &trans   &trans  &trans     &trans
+&none   &none   &none    &none      &none    &none                   &none     &none   &none    &none   &none      &none
+&trans  &trans  &trans   &trans     &trans   &trans                  &sl YANK  &trans  &td_app  &trans  &td_paste  &trans
+&trans  &trans  &trans   &trans     &trans   &trans  &none   &none   &trans    &trans  &trans   &trans  &trans     &trans
+&trans  &trans  &td_cut  &kp LG(C)  &td_vim  &trans  &trans  &trans  &trans    &trans  &trans   &trans  &trans     &trans
+&trans  &trans  &trans   &trans     &trans   &trans  &trans  &trans  &trans    &trans  &trans   &trans  &trans     &trans
             >;
         };
 
