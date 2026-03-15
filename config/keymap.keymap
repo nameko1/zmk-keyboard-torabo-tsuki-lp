@@ -19,7 +19,7 @@
 
 &lt {
     flavor = "hold-preferred";
-}
+};
 
 / {
     combos {
