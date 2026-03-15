@@ -8,10 +8,11 @@
 #define SIGN 1
 #define NUMBER 2
 #define AUTO_MOUSE 4
-#define SCROLL 5
-#define VIM_NORMAL 6
-#define STAGE 7
-#define YANK 8
+#define LOW_DPI 5
+#define SCROLL 6
+#define VIM_NORMAL 7
+#define STAGE 8
+#define YANK 9
 #define TAPPING_TERM_MS_FAST 180
 #define TAPPING_TERM_MS_SLOW 250
 #define COMBO_TIMEOUT_MS 100
@@ -136,8 +137,8 @@
 &none      &none    &none    &none  &none    &none                                    &none        &none  &none      &none    &none          &none
 &kp TAB    &kp Q    &kp W    &kp E  &kp R    &kp T                                    &kp Y        &kp U  &kp I      &kp O    &kp P          &kp BSPC
 &kp LCTRL  &kp A    &kp S    &kp D  &kp F    &kp G        &none       &none           &kp H        &kp J  &kp K      &kp L    &kp SEMICOLON  &kp RET
-&td_caps   &kp Z    &kp X    &kp C  &kp V    &kp B        &kp ESCAPE  &td_app_switch  &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH       &td_caps
-&kp F      &td_opt  &td_cmd  &mo 5  &td_cmd  &lt 1 SPACE  &mo 7       &mo 2           &lt 2 SPACE  &none  &none      &kp F    &kp F          &kp F
+&td_caps   &kp Z    &kp X    &kp C  &kp V    &kp B        &kp ESCAPE  &none  &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH       &td_caps
+&kp F      &td_opt  &td_cmd  &mo SCROLL  &td_cmd  &lt 1 SPACE  &mo STAGE       &mo NUMBER           &lt NUMBER SPACE  &none  &none      &kp F    &kp F          &kp F
             >;
         };
 
@@ -177,17 +178,18 @@
 &none  &none  &none  &none  &none  &none                &none  &none      &none      &none      &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &mkp LCLK  &mkp RCLK  &mkp MCLK  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none      &none      &none      &none  &none
-&none  &none  &none  &none  &mo 5  &none  &none  &none  &none  &none      &none      &none      &none  &none
+&none  &none  &none  &none  &mo LOW_DPI  &none  &none  &none  &none  &none      &none      &none      &none  &none
             >;
         };
 
+
         low_dpi_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &none   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&none  &none  &none  &none  &none  &none                &none  &none      &none      &none      &none  &none
+&none  &none  &none  &none  &none  &none                &none  &none      &none      &none      &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &trans  &trans  &trans  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none      &none      &none      &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none      &none      &none      &none  &none
             >;
         };
 
@@ -204,7 +206,7 @@
         vim_normal {
             bindings = <
 &none   &none   &none   &none   &none          &none                           &none           &none           &none         &none            &none   &none
-&trans  &trans  &trans  &trans  &kp LG(LS(Z))  &trans                          &sl 9           &kp LG(Z)       &to 0         &trans           &trans  &trans
+&trans  &trans  &trans  &trans  &kp LG(LS(Z))  &trans                          &sl YANK           &kp LG(Z)       &to DEFAULT         &trans           &trans  &trans
 &trans  &trans  &trans  &trans  &trans         &trans          &none   &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans  &trans
 &trans  &trans  &trans  &trans  &trans         &kt LEFT_SHIFT  &trans  &trans  &trans          &trans          &trans        &trans           &trans  &trans
 &trans  &trans  &trans  &trans  &trans         &trans          &trans  &trans  &trans          &trans          &trans        &trans           &trans  &trans
@@ -214,7 +216,7 @@
         dance_stage {
             bindings = <
 &none   &none   &none    &none      &none    &none                   &none   &none   &none    &none   &none      &none
-&trans  &trans  &trans   &trans     &trans   &trans                  &sl 9   &trans  &td_app  &trans  &td_paste  &trans
+&trans  &trans  &trans   &trans     &trans   &trans                  &sl YANK   &trans  &td_app  &trans  &td_paste  &trans
 &trans  &trans  &trans   &trans     &trans   &trans  &none   &none   &trans  &trans  &trans   &trans  &trans     &trans
 &trans  &trans  &td_cut  &kp LG(C)  &td_vim  &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans     &trans
 &trans  &trans  &trans   &trans     &trans   &trans  &trans  &trans  &trans  &trans  &trans   &trans  &trans     &trans
