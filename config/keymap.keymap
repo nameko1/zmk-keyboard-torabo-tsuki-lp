@@ -17,6 +17,10 @@
 #define TAPPING_TERM_MS_SLOW 250
 #define COMBO_TIMEOUT_MS 150
 
+&lt {
+    flavor = "hold-preferred";
+};
+
 / {
     combos {
         compatible = "zmk,combos";
