@@ -2,21 +2,28 @@
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
+
 &zip_temp_layer {
     compatible = "zmk,input-processor-temp-layer";
     excluded-positions = <
         33 34 35
     >;
     require-prior-idle-ms = <1000>;
-
 };
 
 &pointing_listener {
     // input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     input-processors = <
-        &zip_temp_layer 4 1200
-        &zip_xy_scaler 5 4
+        &zip_temp_layer 4 300
+        &zip_xy_scaler 1 1000
     >;
+
+    temp_layer {
+        layers = <4>;
+        input-processors = <
+            &zip_xy_scaler 5 4
+        >;
+    };
 
     scroller {
         layers = <5>;
