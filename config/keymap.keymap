@@ -15,7 +15,7 @@
 #define YANK 9
 #define TAPPING_TERM_MS_FAST 180
 #define TAPPING_TERM_MS_SLOW 250
-#define COMBO_TIMEOUT_MS 100
+#define COMBO_TIMEOUT_MS 150
 
 / {
     combos {
@@ -36,11 +36,13 @@
         kana {
             bindings = <&kp LANG4>;
             key-positions = <24 37>;
+            timeout-ms = <COMBO_TIMEOUT_MS>;
         };
 
         eiji {
             bindings = <&kp LANG5>;
             key-positions = <60 24>;
+            timeout-ms = <COMBO_TIMEOUT_MS>;
         };
     };
 
