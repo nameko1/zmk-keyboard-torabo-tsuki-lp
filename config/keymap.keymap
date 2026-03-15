@@ -34,15 +34,13 @@
         };
 
         kana {
-            bindings = <&kp LANG4>;
+            bindings = <&kp LANG2>;
             key-positions = <24 37>;
-            timeout-ms = <COMBO_TIMEOUT_MS>;
         };
 
         eiji {
-            bindings = <&kp LANG5>;
+            bindings = <&kp LANG1>;
             key-positions = <60 24>;
-            timeout-ms = <COMBO_TIMEOUT_MS>;
         };
     };
 
@@ -226,11 +224,11 @@
 
         dance_stage {
             bindings = <
-&none   &none   &none    &none      &none    &none                   &none     &none   &none    &none   &none      &none
-&trans  &trans  &trans   &trans     &trans   &trans                  &sl YANK  &trans  &td_app  &trans  &td_paste  &trans
-&trans  &trans  &trans   &trans     &trans   &trans  &none   &none   &trans    &trans  &trans   &trans  &trans     &trans
-&trans  &trans  &td_cut  &kp LG(C)  &td_vim  &trans  &trans  &trans  &trans    &trans  &trans   &trans  &trans     &trans
-&trans  &trans  &trans   &trans     &trans   &trans  &trans  &trans  &trans    &trans  &trans   &trans  &trans     &trans
+&none   &none   &none      &none      &none    &none                   &none     &none   &none        &none   &none      &none
+&trans  &trans  &trans     &trans     &trans   &trans                  &sl YANK  &trans  &kp LG(TAB)  &trans  &kp LG(V)  &trans
+&trans  &trans  &trans     &trans     &trans   &trans  &none   &none   &trans    &trans  &trans       &trans  &trans     &trans
+&trans  &trans  &kp LG(X)  &kp LG(C)  &td_vim  &trans  &trans  &trans  &trans    &trans  &trans       &trans  &trans     &trans
+&trans  &trans  &trans     &trans     &trans   &trans  &trans  &trans  &trans    &trans  &trans       &trans  &trans     &trans
             >;
         };
 
