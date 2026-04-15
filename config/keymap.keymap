@@ -154,21 +154,21 @@
 
         auto_mouse {
             bindings = <
-&none  &none  &none  &none  &none  &none                &none  &none        &none            &none      &none  &none
-&none  &none  &none  &none  &none  &none                &none  &none        &none            &none      &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &mkp LCLK    &mkp RCLK        &mkp MCLK  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &kp LC(TAB)  &kp LC(LS(TAB))  &none      &none  &none
-&none  &none  &none  &none  &mo 5  &none  &none  &none  &none  &none        &none            &none      &none  &none
+&none  &none  &none  &none  &none  &none                &none  &none            &none        &none      &none  &none
+&none  &none  &none  &none  &none  &none                &none  &none            &none        &none      &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &mkp LCLK        &mkp RCLK    &mkp MCLK  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &kp LC(LS(TAB))  &kp LC(TAB)  &none      &none  &none
+&none  &none  &none  &none  &mo 5  &none  &none  &none  &none  &none            &none        &none      &none  &none
             >;
         };
 
         low_dpi_layer {
             bindings = <
-&none  &none  &none  &none  &none  &none                &none  &none      &none      &none      &none  &none
-&none  &none  &none  &none  &none  &none                &none  &none      &none      &none      &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &mkp LCLK  &mkp RCLK  &mkp MCLK  &none  &none
+&none  &none  &none  &none  &none  &none                &none  &none        &none            &none      &none  &none
+&none  &none  &none  &none  &none  &none                &none  &none        &none            &none      &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &mkp LCLK    &mkp RCLK        &mkp MCLK  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &kp LC(TAB)  &kp LC(LS(TAB))  &none      &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none      &none      &none      &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none        &none            &none      &none  &none
             >;
         };
 
@@ -184,21 +184,21 @@
 
         vim_normal {
             bindings = <
-&none   &none   &none   &none   &none          &none                           &none           &none           &none         &none            &none   &none
-&trans  &trans  &trans  &trans  &kp LG(LS(Z))  &trans                          &sl 9           &kp LG(Z)       &to 0         &trans           &trans  &trans
-&trans  &trans  &trans  &trans  &trans         &trans          &none   &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans  &trans
-&trans  &trans  &trans  &trans  &trans         &kt LEFT_SHIFT  &trans  &trans  &trans          &trans          &trans        &trans           &trans  &trans
-&trans  &trans  &trans  &trans  &trans         &trans          &trans  &trans  &trans          &trans          &trans        &trans           &trans  &trans
+&none   &none   &none   &none   &none          &none                   &none           &none           &none         &none            &none   &none
+&trans  &trans  &trans  &trans  &kp LG(LS(Z))  &trans                  &sl 9           &kp LG(Z)       &to 0         &trans           &trans  &trans
+&trans  &trans  &trans  &trans  &trans         &trans  &none   &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans  &trans
+&trans  &trans  &trans  &trans  &trans         &none   &trans  &trans  &trans          &trans          &trans        &trans           &trans  &trans
+&trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans          &trans          &trans        &trans           &trans  &trans
             >;
         };
 
         dance_stage {
             bindings = <
-&none   &none   &none   &none   &none    &none                   &none   &none   &none        &none   &none      &none
-&trans  &trans  &trans  &trans  &trans   &trans                  &sl 9   &trans  &kp LG(TAB)  &trans  &kp LG(V)  &trans
-&trans  &trans  &trans  &trans  &trans   &trans  &none   &none   &trans  &trans  &trans       &trans  &trans     &trans
-&trans  &trans  &trans  &trans  &td_vim  &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans     &trans
-&trans  &trans  &trans  &trans  &trans   &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans     &trans
+&none   &none   &none   &none   &none   &none                   &none     &none     &none        &none      &none      &none
+&trans  &trans  &trans  &trans  &trans  &trans                  &sl 9     &trans    &kp LG(TAB)  &trans     &kp LG(V)  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &none   &none   &kp LEFT  &kp DOWN  &kp UP       &kp RIGHT  &trans     &trans
+&trans  &trans  &trans  &trans  &to 7   &trans  &trans  &trans  &trans    &trans    &trans       &trans     &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans       &trans     &trans     &trans
             >;
         };
 
