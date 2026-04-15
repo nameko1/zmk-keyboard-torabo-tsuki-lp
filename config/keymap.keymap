@@ -32,11 +32,13 @@
         kana {
             bindings = <&kp LANG2>;
             key-positions = <24 37>;
+            timeout-ms = <60>;
         };
 
         eiji {
             bindings = <&kp LANG1>;
             key-positions = <60 24>;
+            timeout-ms = <60>;
         };
     };
 
@@ -112,21 +114,21 @@
 
         default {
             bindings = <
-&none      &none    &none    &none  &none    &none                           &none        &none  &none      &none    &none          &none
-&kp TAB    &kp Q    &kp W    &kp E  &kp R    &kp T                           &kp Y        &kp U  &kp I      &kp O    &kp P          &kp BSPC
-&kp LCTRL  &kp A    &kp S    &kp D  &kp F    &kp G        &none       &none  &kp H        &kp J  &kp K      &kp L    &kp SEMICOLON  &kp RET
-&td_caps   &kp Z    &kp X    &kp C  &kp V    &kp B        &kp ESCAPE  &none  &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH       &td_caps
-&kp F      &td_opt  &td_cmd  &mo 6  &td_cmd  &lt 1 SPACE  &mo 8       &mo 2  &lt 2 SPACE  &none  &none      &kp F    &kp F          &kp F
+&none      &none    &none    &none  &none    &none                               &none        &none  &none      &none    &none          &none
+&kp TAB    &kp Q    &kp W    &kp E  &kp R    &kp T                               &kp Y        &kp U  &kp I      &kp O    &kp P          &kp BSPC
+&kp LCTRL  &kp A    &kp S    &kp D  &kp F    &kp G        &none       &none      &kp H        &kp J  &kp K      &kp L    &kp SEMICOLON  &kp RET
+&td_caps   &kp Z    &kp X    &kp C  &kp V    &kp B        &kp ESCAPE  &kp LG(C)  &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH       &td_caps
+&kp F      &td_opt  &td_cmd  &mo 6  &td_cmd  &lt 1 SPACE  &mo 8       &mo 2      &lt 2 SPACE  &none  &none      &kp F    &kp F          &kp F
             >;
         };
 
         sign {
             bindings = <
-&none   &none            &none         &none         &none         &none                         &none      &none          &none         &none     &none     &none
-&trans  &kp EXCLAMATION  &kp AT        &kp HASH      &kp DOLLAR    &kp PERCENT                   &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LPAR  &kp RPAR  &trans
-&trans  &trans           &trans        &trans        &kp PIPE      &kp TILDE     &none   &none   &kp UNDER  &kp PLUS       &kp LBRC      &kp RBRC  &kp DQT   &trans
-&trans  &bt BT_SEL 0     &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &trans  &trans     &trans         &kp LT        &kp GT    &trans    &trans
-&trans  &trans           &trans        &trans        &trans        &trans        &trans  &trans  &trans     &none          &none         &trans    &trans    &trans
+&none   &none            &none         &none         &none         &none                            &none      &none          &none         &none     &none     &none
+&trans  &kp EXCLAMATION  &kp AT        &kp HASH      &kp DOLLAR    &kp PERCENT                      &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LPAR  &kp RPAR  &trans
+&trans  &trans           &trans        &trans        &kp PIPE      &kp TILDE     &none   &none      &kp UNDER  &kp PLUS       &kp LBRC      &kp RBRC  &kp DQT   &trans
+&trans  &bt BT_SEL 0     &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &kp LG(P)  &trans     &trans         &kp LT        &kp GT    &trans    &trans
+&trans  &trans           &trans        &trans        &trans        &trans        &trans  &trans     &trans     &none          &none         &trans    &trans    &trans
             >;
         };
 
@@ -136,7 +138,7 @@
 &trans  &kp NUMBER_1            &kp NUMBER_2            &kp N3                  &kp N4    &kp N5                     &kp N6     &kp N7     &kp N8            &kp N9             &kp N0            &trans
 &trans  &kp N1                  &kp N2                  &kp N3                  &kp BSLH  &kp GRAVE  &none   &none   &kp MINUS  &kp EQUAL  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp SINGLE_QUOTE  &trans
 &trans  &kp LS(LA(LC(LG(F1))))  &kp LS(LA(LC(LG(F2))))  &kp LS(LA(LC(LG(F3))))  &kp N9    &kp N0     &trans  &trans  &none      &none      &kp COMMA         &kp DOT            &trans            &trans
-&trans  &trans                  &trans                  &trans                  &trans    &trans     &trans  &trans  &kp TAB    &none      &none             &trans             &trans            &trans
+&trans  &trans                  &trans                  &trans                  &trans    &trans     &trans  &trans  &trans     &none      &none             &trans             &trans            &trans
             >;
         };
 
@@ -192,11 +194,11 @@
 
         dance_stage {
             bindings = <
-&none   &none   &none      &none      &none    &none                   &none   &none   &none        &none   &none      &none
-&trans  &trans  &trans     &trans     &trans   &trans                  &sl 9   &trans  &kp LG(TAB)  &trans  &kp LG(V)  &trans
-&trans  &trans  &trans     &trans     &trans   &trans  &none   &none   &trans  &trans  &trans       &trans  &trans     &trans
-&trans  &trans  &kp LG(X)  &kp LG(C)  &td_vim  &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans     &trans
-&trans  &trans  &trans     &trans     &trans   &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans     &trans
+&none   &none   &none   &none   &none    &none                   &none   &none   &none        &none   &none      &none
+&trans  &trans  &trans  &trans  &trans   &trans                  &sl 9   &trans  &kp LG(TAB)  &trans  &kp LG(V)  &trans
+&trans  &trans  &trans  &trans  &trans   &trans  &none   &none   &trans  &trans  &trans       &trans  &trans     &trans
+&trans  &trans  &trans  &trans  &td_vim  &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans     &trans
+&trans  &trans  &trans  &trans  &trans   &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans     &trans
             >;
         };
 
