@@ -164,11 +164,11 @@
 
         low_dpi_layer {
             bindings = <
-&none  &none  &none  &none  &none  &none                &none  &none            &none        &none      &none  &none
-&none  &none  &none  &none  &none  &none                &none  &none            &none        &none      &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &mkp LCLK        &mkp RCLK    &mkp MCLK  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &kp LC(LS(TAB))  &kp LC(TAB)  &none      &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none            &none        &none      &none  &none
+&none  &none  &none      &none            &none        &none                &none  &none  &none  &none  &none  &none
+&none  &none  &none      &none            &none        &none                &none  &none  &none  &none  &none  &none
+&none  &none  &mkp MCLK  &mkp RCLK        &mkp LCLK    &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none      &kp LC(LS(TAB))  &kp LC(TAB)  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none      &none            &mo 5        &none  &none  &none  &none  &none  &none  &none  &none  &none
             >;
         };
 
