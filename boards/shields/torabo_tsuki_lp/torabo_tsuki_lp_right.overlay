@@ -6,7 +6,7 @@
 &zip_temp_layer {
     compatible = "zmk,input-processor-temp-layer";
     excluded-positions = <
-        26 27 28 41 42 56
+        25 26 27 28
     >;
     require-prior-idle-ms = <350>;
 };
