@@ -8,7 +8,7 @@
     excluded-positions = <
         25 26 27 28
     >;
-    require-prior-idle-ms = <350>;
+    require-prior-idle-ms = <500>;
 };
 
 &pointing_listener {
