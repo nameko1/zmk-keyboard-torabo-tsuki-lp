@@ -134,11 +134,11 @@
 
         number {
             bindings = <
-&none   &none                   &none                   &none                   &none     &none                      &none      &none      &none             &none              &none             &none
-&trans  &kp NUMBER_1            &kp NUMBER_2            &kp N3                  &kp N4    &kp N5                     &kp N6     &kp N7     &kp N8            &kp N9             &kp N0            &trans
-&trans  &kp N1                  &kp N2                  &kp N3                  &kp BSLH  &kp GRAVE  &none   &none   &kp MINUS  &kp EQUAL  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp SINGLE_QUOTE  &trans
-&trans  &kp LS(LA(LC(LG(F1))))  &kp LS(LA(LC(LG(F2))))  &kp LS(LA(LC(LG(F3))))  &kp N9    &kp N0     &trans  &trans  &none      &none      &kp COMMA         &kp DOT            &trans            &trans
-&trans  &trans                  &trans                  &trans                  &trans    &trans     &trans  &trans  &trans     &none      &none             &trans             &trans            &trans
+&none   &none                   &none                   &none                   &none                   &none                                   &none      &none      &none             &none              &none             &none
+&trans  &kp NUMBER_1            &kp NUMBER_2            &kp N3                  &kp N4                  &kp N5                                  &kp N6     &kp N7     &kp N8            &kp N9             &kp N0            &trans
+&trans  &kp N1                  &kp N2                  &kp N3                  &kp BSLH                &kp GRAVE               &none   &none   &kp MINUS  &kp EQUAL  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp SINGLE_QUOTE  &trans
+&trans  &kp LS(LA(LC(LG(F1))))  &kp LS(LA(LC(LG(F2))))  &kp LS(LA(LC(LG(F3))))  &kp LC(LS(LA(LG(F4))))  &kp LC(LS(LA(LG(F5))))  &trans  &trans  &none      &none      &kp COMMA         &kp DOT            &trans            &trans
+&trans  &trans                  &trans                  &trans                  &trans                  &trans                  &trans  &trans  &trans     &none      &none             &trans             &trans            &trans
             >;
         };
 
